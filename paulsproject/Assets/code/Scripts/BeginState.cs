@@ -1,15 +1,24 @@
 ﻿using UnityEngine;
-using System.Collections;
+using Assets.Code.Interfaces;
 
-public class BeginState : MonoBehaviour {
+namespace Assets.Code.States
 
-	// Use this for initialization
-	void Start () {
-	
+{
+	public class BeginState : IStateBase
+	{
+		public BeginState() //constructor
+		{
+			Debug.Log("Constructing BeginState...");
+		}
+		public void StartUpdate()
+		{
+
+		}
+
+		public void ShowIt()
+		{
+
+		}
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }
