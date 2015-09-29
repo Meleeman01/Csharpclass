@@ -6,10 +6,16 @@ namespace Assets.Code.States
 {
 	public class BeginState : IStateBase
 	{
-		public BeginState() //constructor
+		private StateManager manager;	
+
+		public BeginState(StateManager managerRef) //constructor
 		{
+			manager=managerRef;
 			Debug.Log("Constructing BeginState...");
+			
 		}
+
+
 		public void StartUpdate()
 		{
 
