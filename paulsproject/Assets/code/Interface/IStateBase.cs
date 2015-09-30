@@ -2,7 +2,7 @@
 {
 	public interface IStateBase
 	{
-		void StartUpdate();
+		void StateUpdate();
 	
 		void ShowIt();
 
