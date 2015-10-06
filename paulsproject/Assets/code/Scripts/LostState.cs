@@ -20,14 +20,22 @@ namespace Assets.Code.States
 		{
 			if (Input.GetKeyUp(KeyCode.Space))
 			{
+				Debug.Log("loading BeginningScene...");
 				manager.SwitchState (new BeginState (manager));
-				Application.LoadLevel("BeginningScene");
+				Application.LoadLevel("beginningscene");
+				Debug.Log("BeginningScene loaded.");
 			}
 		}
 
 		public void ShowIt()
 		{
+			if(GUI.Button(new Rect((Screen.width/2)-75,(Screen.height/2)-50,150,100), "You Lost. Play Again?"))
+			{
+				
+				manager.SwitchState (new BeginState (manager));
+				Application.LoadLevel("beginningscene");
 
+			}
 		}
 	}
 	

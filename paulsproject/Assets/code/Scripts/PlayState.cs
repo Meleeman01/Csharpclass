@@ -22,6 +22,11 @@ namespace Assets.Code.States
 			{
 				manager.SwitchState (new WinState (manager));
 			}
+
+			if (Input.GetKeyUp(KeyCode.Return))
+			{
+				manager.SwitchState (new LostState (manager));
+			}
 		}
 
 		public void ShowIt()

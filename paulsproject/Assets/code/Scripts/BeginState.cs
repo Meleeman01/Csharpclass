@@ -16,7 +16,7 @@ namespace Assets.Code.States
 			manager=managerRef;
 			futureTime=screenDuration+Time.realtimeSinceStartup;
 			Debug.Log(" BeginState constructed.");
-			Time.timeScale=0;
+			
 		}
 
 
@@ -36,7 +36,7 @@ namespace Assets.Code.States
 		{
 			if(GUI.Button(new Rect((Screen.width/2)-75,(Screen.height/2)-50,150,100), "Press to Play"))
 			{
-				Time.timeScale=1;
+				
 				Switch();
 				//manager.SwitchState(new PlayState(manager));
 
