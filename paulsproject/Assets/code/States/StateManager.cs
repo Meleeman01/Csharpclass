@@ -8,6 +8,9 @@ public class StateManager : MonoBehaviour
 
 	private IStateBase activeState;
 
+	[HideInInspector]
+	public GameData gameDataRef;
+
 	private static StateManager instanceRef;
 
 	void Awake ()
@@ -35,6 +38,8 @@ public class StateManager : MonoBehaviour
 	{
 		activeState = new BeginState(this);
 		Debug.Log("This object is of type: " + activeState);
+
+		gameDataRef=GetComponent<GameData>();
 	}
 	
 	// Update is called once per frame
