@@ -51,10 +51,17 @@ public class StateManager : MonoBehaviour
 		activeState=newState;
 	}
 
-	void OnGUI(){
+	void OnGUI()
+	{
 		if(activeState !=null)
 		{
 			activeState.ShowIt();
 		}
+	}
+
+	public void Restart()
+	{
+		Destroy(gameObject);
+		Application.LoadLevel("Scene0");
 	}
 }

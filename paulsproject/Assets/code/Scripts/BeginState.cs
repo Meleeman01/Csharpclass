@@ -16,6 +16,10 @@ namespace Assets.Code.States
 			manager=managerRef;
 			futureTime=screenDuration+Time.realtimeSinceStartup;
 			Debug.Log(" BeginState constructed.");
+			if(Application.loadedLevelName !="Scene0")
+			{
+				Application.LoadLevel("Scene0");
+			}
 			
 		}
 
@@ -48,8 +52,8 @@ namespace Assets.Code.States
 		void Switch()
 		{
 			Time.timeScale=1;
-			Application.LoadLevel("gamenumber1");  //name of scene save file
-			manager.SwitchState (new PlayState (manager));
+			Application.LoadLevel("Scene0");  //name of scene save file
+			manager.SwitchState (new SetupState (manager));
 		}
 	}
 	
