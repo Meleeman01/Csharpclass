@@ -3,13 +3,18 @@ using System.Collections;
 
 public class gunscript : MonoBehaviour {
 
+
 	// Use this for initialization
 	void Start () {
 	
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	void Update ()
+	{
+		if(EventType.MouseDown)
+		{
+			
+		}
 	}
 }
