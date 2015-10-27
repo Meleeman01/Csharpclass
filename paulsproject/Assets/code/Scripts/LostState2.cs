@@ -33,6 +33,10 @@ namespace Assets.Code.States
 
 		{
 			Debug.Log("In LostState2");
+
+			GUI.DrawTexture(new Rect(0,0, Screen.width, Screen.height),
+			 manager.gameDataRef.lostStateSplash,
+			  ScaleMode.StretchToFill);
 		}
 	}
 }

@@ -7,6 +7,8 @@ namespace Assets.Code.States
 	{
 		private StateManager manager;
 
+		private GameObject player;
+
 		public PlayStateScene1_1 ( StateManager managerRef)
 		{
 			manager=managerRef;
@@ -16,7 +18,7 @@ namespace Assets.Code.States
 			}
 
 			player= GameObject.Find("Player");
-			player.rigidbody.isKinematic=false;
+			player.GetComponent<Rigidbody>().isKinematic=false;
 
 		}
 
