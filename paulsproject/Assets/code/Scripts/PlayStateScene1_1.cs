@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 using Assets.Code.Interfaces;
 
 namespace Assets.Code.States
@@ -20,24 +21,55 @@ namespace Assets.Code.States
 			player= GameObject.Find("Player");
 			player.GetComponent<Rigidbody>().isKinematic=false;
 
+			foreach(GameObject camera in manager.gameDataRef.cameras)
+			{
+				if(camera.name != "LookAt Camera")
+				{
+					camera.SetActive(false);
+				}
+				else
+				{
+					camera.SetActive(true);
+				}
+			}
+
 		}
 
 		public void StateUpdate ()
 		{
-			if (Input.GetKeyUp (KeyCode.Space))
+			if(manager.gameDataRef.playerLives <=0)
 			{
-				manager.SwitchState (new WinState (manager));
+				manager.SwitchState(new LostState(manager));
+				manager.gameDataRef.ResetPlayer();
+				player.GetComponent<Rigidbody>().isKinematic=true;
+				player.transform.position=new Vector3(50, .5f, 40);
 			}
 
-			if(Input.GetKeyUp (KeyCode.Return))
+			if(manager.gameDataRef.score >= 5)
 			{
-				manager.SwitchState (new LostState (manager));
+				manager.SwitchState(new WinState(manager));
+				player.GetComponent<Rigidbody>().isKinematic=true;
+				player.transform.position=new Vector3(50, .5f, 40);
 			}
+
+			
 		}
 
 		public void ShowIt()
 		{
 			Debug.Log("In PlayStateScene1_1");
+
+			GUI.Box(new Rect(10,10,100,25),string.Format("Score: "+ manager.gameDataRef.score));
+
+			if(GUI.Button
+				(new Rect(Screen.width/2-130, 10,260,30),string.Format("Click here or Press 2 for Level 1, State 2"))||
+				Input.GetKeyUp(KeyCode.Alpha2))		
+			{
+				manager.SwitchState(new PlayStateScene1_2(manager));
+			}
+
+			GUI.Box(new Rect(Screen.width-110,10,100,25),
+				string.Format("Lives leftL "+ manager.gameDataRef.playerLives));
 		}
 	}
 } 

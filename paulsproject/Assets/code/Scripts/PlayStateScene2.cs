@@ -6,6 +6,9 @@ namespace Assets.Code.States
 	public class PlayStateScene2 : IStateBase
 	{
 		private StateManager manager;
+		private GameObject player;
+		private PlayerControl controller;
+
 
 		public PlayStateScene2 (StateManager managerRef)
 		{
@@ -14,18 +17,43 @@ namespace Assets.Code.States
 			{
 				Application.LoadLevel("Scene2");
 			}
+
+			player=GameObject.Find("Player");
+			controller=player.GetComponent<PlayerControl>();
+			player.GetComponent<Rigidbody>().isKinematic=false;
+
+			foreach(var camera in manager.gameDataRef.cameras)
+			{
+				if(camera.name != "FollowCam")
+				{
+					camera.SetActive(false);
+				}
+				else
+				{
+					camera.SetActive(true);
+				}
+			}
 		}
 
 		public void StateUpdate()
 		{
-			if (Input.GetKeyUp (KeyCode.Space))
+			if(manager.gameDataRef.playerLives <=0)
 			{
-				manager.SwitchState (new WinState2 (manager));
+				manager.SwitchState(new LostState2(manager));
+				manager.gameDataRef.ResetPlayer();
+				player.GetComponent<Rigidbody>().isKinematic=true;
+				player.transform.position=new Vector3(50, .5f, 40);
 			}
 
-			if (Input.GetKeyUp (KeyCode.Return))
+			if(manager.gameDataRef.score >= 5)
 			{
-				manager.SwitchState (new LostState2 (manager));
+				manager.SwitchState(new WinState2(manager));
+				player.GetComponent<Rigidbody>().isKinematic=true;
+			}
+
+			if (Input.GetKey(KeyCode.LeftControl))
+			{
+				controller.FireEnergyPulse();
 			}
 
 		}
@@ -33,6 +61,10 @@ namespace Assets.Code.States
 		public void ShowIt()
 		{
 			Debug.Log("In PlayStateScene2");
+
+			GUI.Box(new Rect (10,10,100,25), string.Format("Score: "+ manager.gameDataRef.score));
+
+			GUI.Box(new Rect (Screen.width-110,10,100,25),string.Format("Lives left: "+manager.gameDataRef.playerLives));
 		}
 	}
 }

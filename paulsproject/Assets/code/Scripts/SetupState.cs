@@ -91,7 +91,11 @@ namespace Assets.Code.States
 				Input.GetKeyUp(KeyCode.P))
 			{
 				manager.SwitchState(new PlayStateScene1_1 (manager));
+
+				Player.transform.position=new Vector3(50,.5f,40);
 			}
+
+
 
 		}
 	}

@@ -15,6 +15,8 @@ namespace Assets.Code.States
 			if(Application.loadedLevelName != "Scene0")
 			{
 				Application.LoadLevel("Scene0");
+
+				manager.gameDataRef.SetScore();
 			}
 			
 		}
@@ -22,12 +24,6 @@ namespace Assets.Code.States
 
 		public void StateUpdate()
 		{
-			if(Input.GetKeyUp(KeyCode.Space))
-			{
-				 			
-				manager.SwitchState (new PlayStateScene2 (manager));
-				
-			}
 		}
 
 		public void ShowIt()
@@ -42,6 +38,12 @@ namespace Assets.Code.States
 
 
 			Debug.Log("In WinState");
+			GUI.DrawTexture(new Rect(0,0,Screen.width, Screen.height), manager.gameDataRef.wonStateSplash,ScaleMode.StretchToFill);
+
+			if(GUI.Button(new Rect(10,10,250,30),"Click Here Or Space key for next Level")|| Input.GetKeyUp (KeyCode.Space))
+			{
+				manager.SwitchState(new PlayStateScene2 (manager));
+			}
 		}
 	}
 	

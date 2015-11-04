@@ -18,15 +18,20 @@ namespace Assets.Code.States
 
 		public void StateUpdate()
 		{
-			if (Input.GetKeyUp (KeyCode.Space))
-			{
-				manager.Restart();
-			}
+		
 		}
 
 		public void ShowIt()
 		{
 			Debug.Log("In WinState2");
+			GUI.DrawTexture (new Rect (0,0, Screen.width, Screen.height),
+				manager.gameDataRef.wonStateSplash, ScaleMode.StretchToFill);
+
+			if (GUI.Button(new Rect(10,10,270,30),"Click Here or Return key to Restart Game")||
+				Input.GetKeyUp (KeyCode.Return))
+			{
+				manager.Restart();
+			}
 		}
 	}
 }
