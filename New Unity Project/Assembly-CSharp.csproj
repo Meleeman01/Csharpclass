@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{7ADD4BFD-FC50-97B0-E965-D2B84C441CF9}</ProjectGuid>
+	<ProjectGuid>{B2B58FB2-4462-6B0C-A872-40DD957E5FE0}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -46,21 +46,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\code\Interface\IStateBase.cs" />
-     <Compile Include="Assets\code\Scripts\BeginState.cs" />
-     <Compile Include="Assets\code\Scripts\FollowingPlayer.cs" />
-     <Compile Include="Assets\code\Scripts\GameData.cs" />
-     <Compile Include="Assets\code\Scripts\LostState.cs" />
-     <Compile Include="Assets\code\Scripts\LostState2.cs" />
-     <Compile Include="Assets\code\Scripts\PlayState.cs" />
-     <Compile Include="Assets\code\Scripts\PlayStateScene1_1.cs" />
-     <Compile Include="Assets\code\Scripts\PlayStateScene1_2.cs" />
-     <Compile Include="Assets\code\Scripts\PlayStateScene2.cs" />
-     <Compile Include="Assets\code\Scripts\PlayerControl.cs" />
-     <Compile Include="Assets\code\Scripts\SetupState.cs" />
-     <Compile Include="Assets\code\Scripts\WinState.cs" />
-     <Compile Include="Assets\code\Scripts\WinState2.cs" />
-     <Compile Include="Assets\code\States\StateManager.cs" />
+     <Compile Include="Assets\scripts\finishlinetimer.cs" />
+     <Compile Include="Assets\scripts\playermovement.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

@@ -1,7 +1,7 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
-Project("{59A2EAE2-E54A-A7E3-2FE1-2158105B0AFD}") = "paulsproject", "Assembly-CSharp-vs.csproj", "{7ADD4BFD-FC50-97B0-E965-D2B84C441CF9}"
+Project("{51410DB2-8570-737B-A495-110236DE2A7E}") = "New Unity Project", "Assembly-CSharp-vs.csproj", "{B2B58FB2-4462-6B0C-A872-40DD957E5FE0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,15 +9,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7ADD4BFD-FC50-97B0-E965-D2B84C441CF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7ADD4BFD-FC50-97B0-E965-D2B84C441CF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7ADD4BFD-FC50-97B0-E965-D2B84C441CF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7ADD4BFD-FC50-97B0-E965-D2B84C441CF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2B58FB2-4462-6B0C-A872-40DD957E5FE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2B58FB2-4462-6B0C-A872-40DD957E5FE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2B58FB2-4462-6B0C-A872-40DD957E5FE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2B58FB2-4462-6B0C-A872-40DD957E5FE0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-						GlobalSection(MonoDevelopProperties) = preSolution
+			GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
