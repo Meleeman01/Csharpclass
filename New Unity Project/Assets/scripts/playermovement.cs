@@ -4,19 +4,35 @@ using System.Collections;
 public class playermovement : MonoBehaviour {
 
 	public float speed=16.0f, rotationSpeed= 5.5f;
+
+	private float playerRotationX;
+	private float playerRotationY;
+	private float playerRotationZ;
 	// Use this for initialization
-	void Start () {
-	
+	void Start () 
+	{
+		playerRotationX=GameObject.Find("Car").transform.rotation.eulerAngles.x;
+		playerRotationY=GameObject.Find("Car").transform.rotation.eulerAngles.y;
+		playerRotationZ=GameObject.Find("Car").transform.rotation.eulerAngles.z;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(this.transform.rotation.eulerAngles.z>=180||transform.rotation.eulerAngles.z<=-180) 
-		{
-			Debug.Log("flipped over");
-			transform.eulerAngles = new Vector3(0,0,0);
-		}
+		playerRotationX=GameObject.Find("Car").transform.rotation.eulerAngles.x;
+		playerRotationY=GameObject.Find("Car").transform.rotation.eulerAngles.y;
 
+		if(this.transform.rotation.eulerAngles.z >= 180 ||this.transform.rotation.eulerAngles.z<=-180) 
+		{
+		
+			Debug.Log("flipped over");
+
+			
+			transform.eulerAngles = new Vector3(playerRotationX,playerRotationY,0);
+		}
+		if(Input.GetKeyDown(KeyCode.F))
+			{
+				transform.eulerAngles = new Vector3(playerRotationX,playerRotationY,0);
+			}
 	
 	}
 

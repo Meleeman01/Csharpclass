@@ -7,7 +7,7 @@ public class LookatPlayer : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		playerPosition=GameObject.Find("Player").transform;
+		playerPosition=GameObject.Find("Car").transform;
 	}
 	
 	// Update is called once per frame
