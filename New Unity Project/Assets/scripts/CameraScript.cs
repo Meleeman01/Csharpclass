@@ -49,7 +49,7 @@ public class CameraScript : MonoBehaviour
 		
 		transform.LookAt(playerPosition);
 
-		transform.RotateAround(playerPosition.position,Vector3.up,cameraRotationX-130);
+		transform.RotateAround(playerPosition.position,Vector3.up,cameraRotationX-135);
 
 	}
 }
