@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 public class Inventory : MonoBehaviour {
 
-	public List <GameObject> Items = new List<GameObject>();
+	public List <GameObject> Items = new List<GameObject>(10);
 
 
 
