@@ -58,9 +58,11 @@ public class PickUpItem : MonoBehaviour {
 		{
 			GUI.Box(new Rect(Screen.width/2,Screen.height/2, 75,25), "Press 'E'");
 		}
-		if(itemCount<1 && Input.GetKeyDown(KeyCode.Q))
+		if(itemCount<1)
 		{
-			GUI.Box(new Rect(Screen.width/2+50,Screen.height/2,200,75), "No Items to Drop!");
+			
+			GUI.Box(new Rect(Screen.width/2+200,Screen.height/2,200,50), "No Items to Drop!");
+
 		}
 	}
 
@@ -73,7 +75,7 @@ public class PickUpItem : MonoBehaviour {
 			if(Input.GetKeyDown(KeyCode.E)) {
 				other.transform.SetParent(player);
 				other.gameObject.tag="ItemBagged";
-				transform.position=player.position; 
+				other.transform.position=player.position+new Vector3(0,0,1); 
 				items.Add(other);
 
 				ShowCurrentItem(itemCount);
