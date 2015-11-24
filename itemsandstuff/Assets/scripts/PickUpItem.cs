@@ -75,7 +75,7 @@ public class PickUpItem : MonoBehaviour {
 			if(Input.GetKeyDown(KeyCode.E)) {
 				other.transform.SetParent(player);
 				other.gameObject.tag="ItemBagged";
-				other.transform.position=player.position+new Vector3(0,0,1); 
+				other.transform.localPosition=new Vector3(0.4f,0.4f,1); 
 				items.Add(other);
 
 				ShowCurrentItem(itemCount);
