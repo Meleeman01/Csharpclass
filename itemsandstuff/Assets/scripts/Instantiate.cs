@@ -3,15 +3,22 @@
 	
 	public class Instantiate : MonoBehaviour {
 		
-		public GameObject projectile;
+		public Rigidbody projectile;
 		
+	void start()
+	{
+	
+	}
 		void FixedUpdate () {
+
 		}
 		
 		public void Shoot() { 
 			Rigidbody clone;
 			clone = Instantiate(projectile, transform.position,transform.rotation) as Rigidbody;
-			clone.transform.Translate(0, .5f, 2.1f);
+		clone.isKinematic = false;
+			clone.transform.Translate(0,.3f, 1.6f);
+			
 			clone.velocity = transform.TransformDirection(Vector3.forward * 50);
 		}
 	}

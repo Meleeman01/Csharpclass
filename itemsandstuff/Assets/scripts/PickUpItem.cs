@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class PickUpItem : MonoBehaviour {
 	
 	public Transform player;
-	public Rigidbody projectile;
+
 	public List<Collider> items;
 	public int itemCount = 0, currentItem;
 	bool pickUp;
@@ -86,7 +86,7 @@ public class PickUpItem : MonoBehaviour {
 				other.transform.SetParent(player);
 				other.gameObject.tag="ItemBagged";
 				other.transform.localPosition=new Vector3(0.4f,0.4f,1);
-
+				other.transform.localRotation = Quaternion.identity;
 				items.Add(other);
 
 				ShowCurrentItem(itemCount);
