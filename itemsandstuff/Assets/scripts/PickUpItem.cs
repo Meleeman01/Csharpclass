@@ -4,53 +4,63 @@ using System.Collections.Generic;
 public class PickUpItem : MonoBehaviour {
 	
 	public Transform player;
+	public Rigidbody projectile;
 	public List<Collider> items;
 	public int itemCount = 0, currentItem;
 	bool pickUp;
 	
 	// if you press 'Q' it will let go of the last item.
 	void Update () {
-		if(Input.GetKeyDown(KeyCode.Q) && itemCount>0) 
-		{
+		if (Input.GetKeyDown (KeyCode.Q) && itemCount > 0) {
 
 			itemCount--;
-			ShowCurrentItem(itemCount);
-			items[itemCount].transform.parent = null;
-			items[currentItem].gameObject.tag="Item";
-			items.RemoveAt(itemCount);
-			ShowCurrentItem(itemCount-1);
+			ShowCurrentItem (itemCount);
+			items [itemCount].transform.parent = null;
+			items [currentItem].gameObject.tag = "Item";
+			items.RemoveAt (itemCount);
+			ShowCurrentItem (itemCount - 1);
 			
 		}
-		if(itemCount<1)
-		{
-			Debug.Log("You have No Items to drop!");
+		if (itemCount < 1) {
+			Debug.Log ("You have No Items to drop!");
 		}
 
 		// show only 1 item
-		if(Input.GetKeyDown(KeyCode.Alpha1))
-			{ShowCurrentItem(0);}
-		else if(Input.GetKeyDown(KeyCode.Alpha2))
-			{ShowCurrentItem(1);}
-		else if(Input.GetKeyDown(KeyCode.Alpha3))
-			{ShowCurrentItem(2);}
-		else if(Input.GetKeyDown(KeyCode.Alpha4))
-			{ShowCurrentItem(3);}
-		else if (Input.GetKeyDown(KeyCode.Alpha5))
-			{ShowCurrentItem(4);}
-		else if (Input.GetKeyDown(KeyCode.Alpha6))
-			{ShowCurrentItem(5);}
-		else if (Input.GetKeyDown(KeyCode.Alpha7))
-			{ShowCurrentItem(6);}
-		else if (Input.GetKeyDown(KeyCode.Alpha8))
-			{ShowCurrentItem(7);}
-		else if (Input.GetKeyDown(KeyCode.Alpha9))
-			{ShowCurrentItem(8);}
-		else if (Input.GetKeyDown(KeyCode.Alpha0))
-			{ShowCurrentItem(9);}					
-		else 
-			{Debug.Log("That number is not supported.");}
+		if (Input.GetKeyDown (KeyCode.Alpha1)) {
+			ShowCurrentItem (0);
+
+		} else if (Input.GetKeyDown (KeyCode.Alpha2)) {
+			ShowCurrentItem (1);
+
+		} else if (Input.GetKeyDown (KeyCode.Alpha3)) {
+			ShowCurrentItem (2);
+		} else if (Input.GetKeyDown (KeyCode.Alpha4)) {
+			ShowCurrentItem (3);
+		} else if (Input.GetKeyDown (KeyCode.Alpha5)) {
+			ShowCurrentItem (4);
+		} else if (Input.GetKeyDown (KeyCode.Alpha6)) {
+			ShowCurrentItem (5);
+		} else if (Input.GetKeyDown (KeyCode.Alpha7)) {
+			ShowCurrentItem (6);
+		} else if (Input.GetKeyDown (KeyCode.Alpha8)) {
+			ShowCurrentItem (7);
+		} else if (Input.GetKeyDown (KeyCode.Alpha9)) {
+			ShowCurrentItem (8);
+		} else if (Input.GetKeyDown (KeyCode.Alpha0)) {
+			ShowCurrentItem (9);
+		} else {
+			Debug.Log ("That number is not supported.");
+		}
+
+
+		if (Input.GetMouseButtonDown (0)) {
+			ShootBullets ();
+		}
+
+
 	}
 
+	
 	// this displays a text box saying "Press 'E'".
 	void OnGUI() 
 	{
@@ -75,7 +85,8 @@ public class PickUpItem : MonoBehaviour {
 			if(Input.GetKeyDown(KeyCode.E)) {
 				other.transform.SetParent(player);
 				other.gameObject.tag="ItemBagged";
-				other.transform.localPosition=new Vector3(0.4f,0.4f,1); 
+				other.transform.localPosition=new Vector3(0.4f,0.4f,1);
+
 				items.Add(other);
 
 				ShowCurrentItem(itemCount);
@@ -107,4 +118,11 @@ public class PickUpItem : MonoBehaviour {
 				}
 		}
 	}
+
+	void ShootBullets() {
+				
+		Debug.Log("FIRE!");
+				items[currentItem].GetComponent<Instantiate>().Shoot();
+				   
+			}	// end of ShootBullets()
 }
